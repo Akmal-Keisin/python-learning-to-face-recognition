@@ -36,3 +36,5 @@ Here's the breakdown of each phase that I have already done
 - activate virtual environment in windows `venv\Scripts\activate` and for linux/mac `source venv/bin/activate`
 - install packages from in virtual environment `pip install colorama tabulate`
 - snapshot the installed package to requirements.txt `pip freeze > requirements.txt`
+
+## Phase 3: Working With Images
