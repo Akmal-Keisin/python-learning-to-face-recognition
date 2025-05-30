@@ -28,7 +28,7 @@ Here's the breakdown of each phase that I have already done
 - File I/O (JSON)
 ✅ Created a mini CRUD project (Todo App) with JSON storage
 
-## Phase 2
+## 🟢 Phase 2: OOP, Modules, Import/Export, pip, Virtual Envs, Third-Party Libs
 ✅ Learned about oop (defining class, create an object, inharitance, encapsulation, polymorphism) <br>
 ✅ Learned about modules <br>
 ✅ Learned about virtual environment & pip <br>
