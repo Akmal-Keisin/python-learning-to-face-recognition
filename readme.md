@@ -29,3 +29,6 @@ Here's the breakdown of each phase that I have already done
 ✅ Created a mini CRUD project (Todo App) with JSON storage
 
 ## Phase 2
+✅ Learned about oop (defining class, create an object, inharitance, encapsulation, polymorphism) <br>
+✅ Learned about modules <br>
+✅ Learned about virtual environment <br>
