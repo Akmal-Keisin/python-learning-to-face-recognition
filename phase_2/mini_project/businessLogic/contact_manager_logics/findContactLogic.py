@@ -1,4 +1,6 @@
 from helper import cli
+from colorama import Fore, Style
+from tabulate import tabulate
 import os
 import json
 
@@ -6,17 +8,20 @@ def findContact(load_contacts):
 	while True:
 		cli.clear()
 		print("--FIND CONTACT MENU--")
-		print("Input 0 to back to menu")
+		print("INPUT 0 TO BACK TO MENU")
+		print("Please enter the contact name to find (case insensitive):")
 
 		contacts = load_contacts()
 		if len(contacts) == 0:
-			print("No contact found, please add contact first")
+			print(Fore.RED + "No contacts found." + Style.RESET_ALL)
+			print("Returning to menu...")
 			return
 
 		contactName = input("Please enter the contact name to find : ")
 		contactName = contactName.strip()
 		if contactName == "":
-			print("Contact name cannot be empty")
+			print(Fore.RED + "Contact name cannot be empty." + Style.RESET_ALL)
+			print("Returning to menu...")
 			return
 		
 		if contactName == "0":
@@ -24,17 +29,15 @@ def findContact(load_contacts):
 		
 		matches = [c for c in contacts if c.get("name", "").lower() == contactName.lower()]
 		if matches:
-			print("Contacts found:")
-			for contact in matches:
-				print("Name :", contact["name"])
-				print("Number :", contact["number"])
+			print(Fore.GREEN + "Contacts found :" + Style.RESET_ALL)
+			print(tabulate(matches, headers="keys", tablefmt="grid"))
 		else:
-			print("Contact not found.")
+			print(Fore.RED + "No contacts found with that name." + Style.RESET_ALL)
 
-		choice = input("Find another contact? (y/n)").strip().lower()
+		choice = input("Find another contact? (y/n) ").strip().lower()
 		if choice == "n":
 			return
 		elif choice != "y":
-			print("Invalid input, returning to menu...")
+			print(Fore.RED + "Invalid choice, returning to menu..." + Style.RESET_ALL)
 			return
 		

@@ -1,4 +1,6 @@
 from helper import cli
+from tabulate import tabulate
+from colorama import Fore, Style
 import json
 import os
 
@@ -8,15 +10,17 @@ def listContact(load_contacts):
 
 	contacts = load_contacts()
 	if len(contacts) == 0:
-		print("No contact found, please add contact first")
+		print(Fore.RED + "No contacts found." + Style.RESET_ALL)
+		print("Returning to menu...")
+		return
 
-	for i, contact in enumerate(contacts):
-		print(f"{i + 1}. {contact['name']} - {contact['number']}")
+	print(tabulate(contacts, headers="keys", tablefmt="grid"))
+	print(Fore.GREEN + "Total contacts: " + str(len(contacts)) + Style.RESET_ALL)
 	
 	# Check if user want to exit add menu
-	choice = input("Input 0 to back to the menu :")
+	choice = input("Input 0 to back to the menu : ")
 	if choice.strip() == "0":
 		return
 	else:
-		print("Invalid input, returning to menu...")
+		print(Fore.RED + "Invalid choice, returning to menu..." + Style.RESET_ALL)
 		return

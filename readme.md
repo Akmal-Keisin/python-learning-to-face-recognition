@@ -31,8 +31,8 @@ Here's the breakdown of each phase that I have already done
 ## Phase 2
 ✅ Learned about oop (defining class, create an object, inharitance, encapsulation, polymorphism) <br>
 ✅ Learned about modules <br>
-✅ Learned about virtual environment <br>
+✅ Learned about virtual environment & pip <br>
 - create virtual environment `python -m venv venv`
 - activate virtual environment in windows `venv\Scripts\activate` and for linux/mac `source venv/bin/activate`
-- install packages from in virtual environment `pip install requests opencv-python`
+- install packages from in virtual environment `pip install colorama tabulate`
 - snapshot the installed package to requirements.txt `pip freeze > requirements.txt`

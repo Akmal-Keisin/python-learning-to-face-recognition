@@ -1,4 +1,6 @@
 from helper import cli
+from colorama import Fore, Style
+from tabulate import tabulate
 import os
 import json
 
@@ -8,7 +10,8 @@ def removeContact(load_contacts, store_contacts):
 	contacts = load_contacts()
 	
 	if len(contacts) == 0:
-		print("No contact found, please add contact first")
+		print(Fore.RED + "No contacts found." + Style.RESET_ALL)
+		print("Returning to menu...")
 		return
 
 	while True:
@@ -20,8 +23,8 @@ def removeContact(load_contacts, store_contacts):
 			message = ""
 
 		print("Contacts:")
-		for i, contact in enumerate(contacts):
-			print(f"{i + 1}. {contact['name']} - {contact['number']}")
+		print(tabulate(contacts, headers="keys", tablefmt="grid"))
+		print(Fore.GREEN + "Total contacts: " + str(len(contacts)) + Style.RESET_ALL)
 
 		contactName = input("Please enter the contact name to remove (or 0 to cancel): ")
 		contactName = contactName.strip()
@@ -29,7 +32,7 @@ def removeContact(load_contacts, store_contacts):
 			return
 		
 		if contactName == "":
-			message = "Contact name cannot be empty"
+			message = Fore.RED + "Contact name cannot be empty" + Style.RESET_ALL
 			continue
 		
 		# Find the contact to remove
@@ -41,11 +44,11 @@ def removeContact(load_contacts, store_contacts):
 				break
 		
 		if not contactFound:
-			message = f"Contact '{contactName}' not found"
+			message = Fore.RED + f"Contact '{contactName}' not found" + Style.RESET_ALL
 			continue
 
 		# Save the updated contacts back to the file
 		store_contacts(contacts)
-		message = f"Contact '{contactName}' has been removed successfully"
+		message = Fore.GREEN + f"Contact '{contactName}' removed successfully" + Style.RESET_ALL
 		continue
 		

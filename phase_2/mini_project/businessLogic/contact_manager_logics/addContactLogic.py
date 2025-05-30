@@ -1,4 +1,5 @@
 from helper import cli
+from colorama import Fore, Style
 import json
 import os
 
@@ -28,11 +29,11 @@ def addContact(load_contacts, store_contacts):
 			return
 		
 		if contactNumber == "" or contactName == "":
-			message = "Contact name and number cannot be empty"
+			message = Fore.RED + "Contact name and number cannot be empty" + Style.RESET_ALL
 			continue
 
 		if not contactNumber.isdigit():
-			message = "Contact number should only contain digits"
+			message = Fore.RED + "Contact number must be a number" + Style.RESET_ALL
 			continue
 		
 		dictionary = {
@@ -53,8 +54,8 @@ def addContact(load_contacts, store_contacts):
 
 		if updateCount == 0:
 			contacts.append(dictionary)
-			message = "Contact added successfully"
+			message = Fore.GREEN + "Contact name not found, added successfully" + Style.RESET_ALL
 		else:
-			message = "Contact name found, updated successfully"
+			message = Fore.GREEN + "Contact name found, updated successfully" + Style.RESET_ALL
 
 		store_contacts(contacts)
