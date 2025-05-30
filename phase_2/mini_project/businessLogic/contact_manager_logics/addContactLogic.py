@@ -2,7 +2,7 @@ from helper import cli
 import json
 import os
 
-def addContact():
+def addContact(load_contacts, store_contacts):
 	
 	message = ""
 	while True:
@@ -40,39 +40,21 @@ def addContact():
 			"number": contactNumber.strip(),
 		}
 
-		# Check if the contact storage exist
-		path = os.path.join(os.getcwd(), "storage/contact.json")
-		if not os.path.exists(path):
-			
-			contacts = []
+		contacts = load_contacts()
+		if len(contacts) == 0:
+			store_contacts([dictionary])
+
+		# Check if name already exist, Update if exist
+		updateCount = 0
+		for i, contact in enumerate(contacts):
+			if contact["name"] == dictionary["name"]:
+				contacts[i] = dictionary
+				updateCount += 1
+
+		if updateCount == 0:
 			contacts.append(dictionary)
-			contacts = json.dumps(contacts)
-			
-			with open(path, "w") as file:
-				file.write(contacts)
-				continue
-		
-		# Add process
-		with open(path, "r") as file:
-			
-			contacts = file.read()
-			contacts = json.loads(contacts)
+			message = "Contact added successfully"
+		else:
+			message = "Contact name found, updated successfully"
 
-			# Check if name already exist
-			# Uupdate if exist
-			updateCount = 0
-			for i, contact in enumerate(contacts):
-				if contact["name"] == dictionary["name"]:
-					contacts[i] = dictionary
-					updateCount += 1
-
-			if updateCount == 0:
-				contacts.append(dictionary)
-				message = "Contact added successfully"
-			else:
-				message = "Contact name found, updated successfully"
-				
-		updatedContacts = json.dumps(contacts)
-		with open(path, "w") as file:
-			file.write(updatedContacts)
-		
+		store_contacts(contacts)

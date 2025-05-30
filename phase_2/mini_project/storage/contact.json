@@ -1,1 +1,14 @@
-[{"name": "Test", "number": "08912341233"}, {"name": "Kei", "number": "09981234123"}, {"name": "Test 123", "number": "08123912123"}]
+[
+    {
+        "name": "Test",
+        "number": "08912341233"
+    },
+    {
+        "name": "Kei",
+        "number": "09981234123"
+    },
+    {
+        "name": "Test 123",
+        "number": "08123912123"
+    }
+]
