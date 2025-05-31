@@ -46,3 +46,9 @@ Here's the breakdown of each phase that I have already done
 - Draw on image
 - Show image
 ✅ Created mini project watermarking image
+
+## Phase 4: Face Detection with OpenCV, Real-time Camera Input
+✅ Learned live face tracking using opencv
+✅ Learned open live webcam
+✅ Learned snapshot frame from live webcam 
+
