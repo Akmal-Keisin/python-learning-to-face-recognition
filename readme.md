@@ -26,15 +26,23 @@ Here's the breakdown of each phase that I have already done
 - Conditionals (if, elif, else)
 - Basic function definitions
 - File I/O (JSON)
-✅ Created a mini CRUD project (Todo App) with JSON storage
+✅ Created a mini CRUD project (Contact Management) with JSON storage
 
 ## 🟢 Phase 2: OOP, Modules, Import/Export, pip, Virtual Envs, Third-Party Libs
 ✅ Learned about oop (defining class, create an object, inharitance, encapsulation, polymorphism) <br>
 ✅ Learned about modules <br>
 ✅ Learned about virtual environment & pip <br>
-- create virtual environment `python -m venv venv`
-- activate virtual environment in windows `venv\Scripts\activate` and for linux/mac `source venv/bin/activate`
-- install packages from in virtual environment `pip install colorama tabulate`
-- snapshot the installed package to requirements.txt `pip freeze > requirements.txt`
+- Create virtual environment `python -m venv venv`
+- Activate virtual environment in windows `venv\Scripts\activate` and for linux/mac `source venv/bin/activate`
+- Install packages from in virtual environment `pip install colorama tabulate`
+- Snapshot the installed package to requirements.txt `pip freeze > requirements.txt`
+✅ Update mini CRUD project (Contact Management) with OOP paradigm
 
 ## Phase 3: Working With Images
+✅ Learned about simple opencv-python image operation
+- Resize image
+- Store image
+- Crop image
+- Draw on image
+- Show image
+✅ Created mini project watermarking image
