@@ -52,3 +52,5 @@ Here's the breakdown of each phase that I have already done
 ✅ Learned open live webcam
 ✅ Learned snapshot frame from live webcam 
 
+## Phase 5: Final Project: Face Recognition App (with GUI or CLI)   
+✅ Learned how to compare face using face_recognition and opencv
